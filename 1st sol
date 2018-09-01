@@ -1,0 +1,8 @@
+import java.io.*;
+public class solution
+{
+    public static void main(String[] args)
+    {
+        system.out.println("1st solution..!!!!");
+    }
+}
