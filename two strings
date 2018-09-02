@@ -1,0 +1,71 @@
+/*
+
+Given two strings of equal length, you have to tell whether they both strings are identical.
+
+Two strings S1 and S2 are said to be identical, if any of the permutation of string S1 is equal to the string S2. See Sample explanation for more details.
+
+Input :
+
+First line, contains an intger 'T' denoting no. of test cases.
+Each test consists of a single line, containing two space separated strings S1 and S2 of equal length.
+Output:
+
+For each test case, if any of the permutation of string S1 is equal to the string S2 print YES else print NO.
+Constraints:
+
+1<= T <=100
+1<= |S1| = |S2| <= 10^5
+String is made up of lower case letters only.
+Note : Use Hashing Concept Only . Try to do it in O(string length) .
+
+SAMPLE INPUT 
+3
+sumit mitsu
+ambuj jumba
+abhi hibb
+SAMPLE OUTPUT 
+YES
+YES
+NO
+
+*/
+
+/* IMPORTANT: Multiple classes and nested static classes are supported */
+import java.util.*;
+class TestClass {
+    public static void main(String args[] ) throws Exception {
+        Scanner in = new Scanner(System.in);
+        int t = in.nextInt();
+        while(t-->0)
+        {
+            String s1 = in.next();
+            String s2 = in.next();
+            int flag =0;
+            long[] p = new long[26];
+            long[] q = new long[26];
+            for(int i=0;i<s1.length();i++)
+            {
+                p[s1.charAt(i)-97]++;
+            }
+            for(int i=0;i<s2.length();i++)
+            {
+                q[s2.charAt(i)-97]++;
+            }
+            for(int i=0;i<26;i++)
+            {
+                if(p[i]!=q[i])
+                {
+                    flag = 1;
+                    break;
+                }
+                
+            }
+            if(flag == 1)
+            {
+                System.out.println("NO");
+            }
+            else
+            System.out.println("YES");
+        }
+    }
+}
